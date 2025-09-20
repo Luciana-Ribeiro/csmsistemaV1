@@ -1,0 +1,391 @@
+/* Estilos customizados para toasts com Material Design */
+
+/* Container principal - otimizado para mobile */
+.toast-container-mobile {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  z-index: 9999;
+}
+
+@media (min-width: 640px) {
+  .toast-container-mobile {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Toast base - Design premium com transparência real */
+.custom-toast {
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-family: inherit;
+  min-height: auto !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 1.25rem 1.5rem;
+  max-width: 24rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  transform: perspective(1000px) rotateX(0deg);
+  color: rgb(31, 41, 55);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Overlay premium para profundidade visual */
+.custom-toast::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.08) 0%, 
+    transparent 30%,
+    rgba(255, 255, 255, 0.02) 70%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Efeito de luz superior */
+.custom-toast::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent
+  );
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .custom-toast {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 1rem 1.25rem;
+    max-width: 28rem;
+    font-weight: 500;
+  }
+}
+
+.custom-toast-body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-weight: 500;
+  color: rgb(31, 41, 55);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Variantes de cor - Design glassmorphism premium */
+.Vue-Toastification__toast--success.custom-toast {
+  background: linear-gradient(135deg, 
+    rgba(16, 185, 129, 0.25) 0%, 
+    rgba(34, 197, 94, 0.35) 50%,
+    rgba(22, 163, 74, 0.4) 100%);
+  color: rgb(31, 41, 55);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 20px 60px rgba(34, 197, 94, 0.2),
+    0 8px 25px rgba(34, 197, 94, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(34, 197, 94, 0.1);
+}
+
+.Vue-Toastification__toast--error.custom-toast {
+  background: linear-gradient(135deg, 
+    rgba(239, 68, 68, 0.25) 0%, 
+    rgba(248, 113, 113, 0.35) 50%,
+    rgba(220, 38, 38, 0.4) 100%);
+  color: rgb(31, 41, 55);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 20px 60px rgba(239, 68, 68, 0.2),
+    0 8px 25px rgba(239, 68, 68, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(239, 68, 68, 0.1);
+}
+
+.Vue-Toastification__toast--warning.custom-toast {
+  background: linear-gradient(135deg, 
+    rgba(245, 158, 11, 0.25) 0%, 
+    rgba(251, 191, 36, 0.35) 50%,
+    rgba(217, 119, 6, 0.4) 100%);
+  color: rgb(31, 41, 55);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 20px 60px rgba(245, 158, 11, 0.2),
+    0 8px 25px rgba(245, 158, 11, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(245, 158, 11, 0.1);
+}
+
+.Vue-Toastification__toast--info.custom-toast {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.25) 0%, 
+    rgba(96, 165, 250, 0.35) 50%,
+    rgba(37, 99, 235, 0.4) 100%);
+  color: rgb(31, 41, 55);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 20px 60px rgba(59, 130, 246, 0.2),
+    0 8px 25px rgba(59, 130, 246, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(59, 130, 246, 0.1);
+}
+
+.Vue-Toastification__toast--default.custom-toast {
+  background: linear-gradient(135deg, 
+    rgba(107, 114, 128, 0.25) 0%, 
+    rgba(156, 163, 175, 0.35) 50%,
+    rgba(75, 85, 99, 0.4) 100%);
+  color: rgb(31, 41, 55);
+  border: 1px solid rgba(107, 114, 128, 0.4);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 20px 60px rgba(107, 114, 128, 0.2),
+    0 8px 25px rgba(107, 114, 128, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(107, 114, 128, 0.1);
+}
+
+/* Barra de progresso - Design premium transparente */
+.Vue-Toastification__progress-bar {
+  height: 2px;
+  border-radius: 1px;
+  opacity: 0.6;
+  backdrop-filter: blur(4px);
+}
+
+.Vue-Toastification__progress-bar--success {
+  background: linear-gradient(90deg, 
+    rgba(34, 197, 94, 0.8) 0%, 
+    rgba(34, 197, 94, 0.4) 100%);
+}
+
+.Vue-Toastification__progress-bar--error {
+  background: linear-gradient(90deg, 
+    rgba(239, 68, 68, 0.8) 0%, 
+    rgba(239, 68, 68, 0.4) 100%);
+}
+
+.Vue-Toastification__progress-bar--warning {
+  background: linear-gradient(90deg, 
+    rgba(245, 158, 11, 0.8) 0%, 
+    rgba(245, 158, 11, 0.4) 100%);
+}
+
+.Vue-Toastification__progress-bar--info {
+  background: linear-gradient(90deg, 
+    rgba(59, 130, 246, 0.8) 0%, 
+    rgba(59, 130, 246, 0.4) 100%);
+}
+
+.Vue-Toastification__progress-bar--default {
+  background: linear-gradient(90deg, 
+    rgba(107, 114, 128, 0.8) 0%, 
+    rgba(107, 114, 128, 0.4) 100%);
+}
+
+/* Botão de fechar - Premium com micro-interações */
+.Vue-Toastification__close-button {
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0.8;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.Vue-Toastification__close-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.Vue-Toastification__close-button:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.Vue-Toastification__close-button:hover::before {
+  opacity: 1;
+}
+
+.Vue-Toastification__close-button:active {
+  transform: scale(0.95);
+}
+
+/* Animação de hover para o toast */
+.custom-toast:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 640px) {
+  .Vue-Toastification__close-button {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+/* Efeitos hover premium para interação */
+.custom-toast:hover {
+  transform: perspective(1000px) rotateX(0deg) translateY(-2px);
+  backdrop-filter: blur(35px) saturate(160%);
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.35),
+    0 12px 35px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Efeitos hover específicos por tipo */
+.Vue-Toastification__toast--success.custom-toast:hover {
+  box-shadow: 
+    0 25px 80px rgba(34, 197, 94, 0.25),
+    0 12px 35px rgba(34, 197, 94, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(34, 197, 94, 0.15);
+}
+
+.Vue-Toastification__toast--error.custom-toast:hover {
+  box-shadow: 
+    0 25px 80px rgba(239, 68, 68, 0.25),
+    0 12px 35px rgba(239, 68, 68, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(239, 68, 68, 0.15);
+}
+
+.Vue-Toastification__toast--warning.custom-toast:hover {
+  box-shadow: 
+    0 25px 80px rgba(245, 158, 11, 0.25),
+    0 12px 35px rgba(245, 158, 11, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(245, 158, 11, 0.15);
+}
+
+.Vue-Toastification__toast--info.custom-toast:hover {
+  box-shadow: 
+    0 25px 80px rgba(59, 130, 246, 0.25),
+    0 12px 35px rgba(59, 130, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(59, 130, 246, 0.15);
+}
+
+/* Animações de entrada/saída premium */
+.Vue-Toastification__bounce-enter-active {
+  animation: elegantSlideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.Vue-Toastification__bounce-leave-active {
+  animation: elegantSlideOut 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+/* Keyframes para animações premium */
+@keyframes elegantSlideIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0) scale(0.9) rotateY(15deg);
+    filter: blur(8px);
+  }
+  
+  50% {
+    opacity: 0.8;
+    transform: translate3d(-10%, 0, 0) scale(1.02) rotateY(-2deg);
+    filter: blur(2px);
+  }
+  
+  75% {
+    opacity: 0.95;
+    transform: translate3d(2%, 0, 0) scale(1.01) rotateY(1deg);
+    filter: blur(1px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1) rotateY(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes elegantSlideOut {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1) rotateY(0deg);
+    filter: blur(0px);
+  }
+  
+  30% {
+    opacity: 0.8;
+    transform: translate3d(10%, 0, 0) scale(0.98) rotateY(-5deg);
+    filter: blur(1px);
+  }
+  
+  100% {
+    opacity: 0;
+    transform: translate3d(120%, 0, 0) scale(0.85) rotateY(20deg);
+    filter: blur(6px);
+  }
+}
+
+/* Responsividade para tablets e desktop */
+@media (min-width: 768px) {
+  .custom-toast {
+    max-width: 32rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .toast-container-mobile {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .custom-toast {
+    max-width: 36rem;
+  }
+}
