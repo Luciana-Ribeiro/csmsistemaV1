@@ -90,6 +90,7 @@ import {
   ChartBarIcon,
   HomeIcon,
   DocumentTextIcon,
+  WrenchScrewdriverIcon,
   UsersIcon,
   UserGroupIcon,
   TruckIcon,
@@ -145,13 +146,19 @@ const navigationItems: NavigationItem[] = [
     id: 'dashboard',
     label: 'Dashboard',
     icon: HomeIcon,
-    route: '/dashboard'
+    route: '/'
   },
   {
     id: 'notas-servicos',
     label: 'Notas de Serviços',
     icon: DocumentTextIcon,
     route: '/notas-servicos'
+  },
+  {
+    id: 'servicos',
+    label: 'Serviços',
+    icon: WrenchScrewdriverIcon,
+    route: '/servicos'
   },
   {
     id: 'pessoas',
@@ -211,8 +218,9 @@ const onNavClick = (itemId: string) => {
 <style scoped>
 /* Container principal com cores do projeto */
 .sidebar-container {
-  @apply bg-white shadow-lg border-r flex flex-col;
-  border-color: #F5F5F5; /* project-light */
+  @apply shadow-lg border-r flex flex-col;
+  background-color: #4D7493; /* Cor principal do projeto */
+  border-color: #3a5a73; /* Tom mais escuro para a borda */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   /* Desktop: posição fixa para não rolar com o conteúdo */
   position: fixed;
@@ -258,8 +266,8 @@ const onNavClick = (itemId: string) => {
 /* Header com gradient das cores do projeto */
 .sidebar-header {
   @apply px-4 py-6 border-b;
-  border-color: #F5F5F5; /* project-light */
-  background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%); /* project-white to project-light */
+  border-color: #3a5a73; /* Tom mais escuro da cor principal */
+  background: linear-gradient(135deg, #4D7493 0%, #3a5a73 100%); /* Gradient na cor principal */
   height: 73px; /* Altura fixa igual ao HeaderGlobal */
 }
 
@@ -273,22 +281,22 @@ const onNavClick = (itemId: string) => {
 
 /* Botão fechar mobile */
 .mobile-close-btn {
-  @apply p-2 rounded-md hover:bg-gray-100 transition-colors duration-200 text-gray-600;
+  @apply p-2 rounded-md hover:bg-white/10 transition-colors duration-200 text-white;
 }
 
 .logo-icon {
   @apply flex-shrink-0 w-8 h-8 rounded-material-lg flex items-center justify-center;
-  background: linear-gradient(135deg, #07239A 0%, #13A0D5 100%); /* primary to secondary */
-  box-shadow: 0 4px 8px rgba(7, 35, 154, 0.15); /* primary shadow */
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1CA00 100%); /* Branco para amarelo para destaque */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.15); /* Sombra branca suave */
 }
 
 .logo-icon .w-6 {
-  @apply text-white; /* Ícone branco para contraste */
+  @apply text-blue-800; /* Ícone azul escuro para contraste no fundo claro */
 }
 
 .logo-text {
   @apply text-lg font-semibold whitespace-nowrap;
-  color: #07239A; /* primary color do projeto */
+  color: #FFFFFF; /* Texto branco para contraste no fundo azul */
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -316,21 +324,22 @@ const onNavClick = (itemId: string) => {
 }
 
 .nav-button.inactive {
-  @apply text-gray-600;
+  color: #FFFFFF; /* Fonte branca */
   transition: all 0.2s ease;
 }
 
 .nav-button.inactive:hover {
-  background: linear-gradient(135deg, #F5F5F5 0%, #E5E5E5 100%); /* project-light gradient */
-  color: #07239A; /* primary color */
+  background: linear-gradient(135deg, rgba(107, 114, 128, 0.3) 0%, rgba(75, 85, 99, 0.2) 100%); /* Tons de cinza */
+  color: #FFFFFF; /* Fonte branca mantida */
   transform: translateX(2px);
 }
 
 .nav-button.active {
-  @apply shadow-sm;
-  background: linear-gradient(135deg, #07239A 0%, #13A0D5 100%); /* primary to secondary */
-  color: #FFFFFF; /* project-white */
-  border: 1px solid rgba(7, 35, 154, 0.2); /* primary border */
+  @apply shadow-lg;
+  background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%); /* Gradiente cinza claro elegante */
+  color: #1E293B; /* Cinza escuro para contraste */
+  border: 1px solid rgba(148, 163, 184, 0.3); /* Borda cinza suave */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .nav-icon {
@@ -341,11 +350,11 @@ const onNavClick = (itemId: string) => {
   @apply text-sm font-medium whitespace-nowrap flex-1;
 }
 
-/* Ripple effect com cores do projeto */
+/* Ripple effect com tons de cinza */
 .ripple-effect {
   @apply absolute inset-0 opacity-0;
   border-radius: 12px; /* rounded-material-lg */
-  background: linear-gradient(135deg, rgba(7, 35, 154, 0.1) 0%, rgba(19, 160, 213, 0.05) 100%); /* primary/secondary */
+  background: linear-gradient(135deg, rgba(107, 114, 128, 0.3) 0%, rgba(75, 85, 99, 0.2) 100%); /* Tons de cinza */
   transition: opacity 0.3s ease;
   pointer-events: none;
 }
@@ -357,19 +366,19 @@ const onNavClick = (itemId: string) => {
 /* Footer com cores do projeto */
 .sidebar-footer {
   @apply p-4 border-t;
-  border-color: #F5F5F5; /* project-light */
-  background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%); /* project-white to project-light */
+  border-color: #3a5a73; /* Tom mais escuro da cor principal */
+  background: linear-gradient(135deg, #4D7493 0%, #3a5a73 100%); /* Gradient na cor principal */
 }
 
 .collapse-button {
   @apply w-full flex items-center justify-center px-3 py-2 text-sm transition-all duration-200;
   border-radius: 8px; /* rounded-material-md */
-  color: #424242;
+  color: #FFFFFF; /* Texto branco */
 }
 
 .collapse-button:hover {
-  background: linear-gradient(135deg, #F1CA00 0%, #E6B800 100%); /* warning/accent colors */
-  color: #000000; /* project-black for contrast */
+  background: linear-gradient(135deg, #6B7280 0%, #4B5563 100%); /* Tons de cinza */
+  color: #FFFFFF; /* Fonte branca mantida */
   transform: scale(1.02);
 }
 
@@ -423,12 +432,12 @@ const onNavClick = (itemId: string) => {
 }
 
 .sidebar-main::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #07239A 0%, #13A0D5 100%); /* primary to secondary */
+  background: linear-gradient(135deg, #4D7493 0%, #13A0D5 100%); /* primary to secondary */
   border-radius: 4px;
 }
 
 .sidebar-main::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #051a7a 0%, #0f87b0 100%); /* darker shades */
+  background: linear-gradient(135deg, #3a5a73 0%, #0f87b0 100%); /* darker shades */
 }
 
 /* Tooltips customizados */
@@ -440,7 +449,7 @@ const onNavClick = (itemId: string) => {
   transform: translateY(-50%);
   margin-left: 12px;
   padding: 8px 12px;
-  background: linear-gradient(135deg, #07239A 0%, #13A0D5 100%);
+  background: linear-gradient(135deg, #4D7493 0%, #13A0D5 100%);
   color: #FFFFFF;
   border-radius: 8px;
   font-size: 0.875rem;
@@ -462,7 +471,7 @@ const onNavClick = (itemId: string) => {
   height: 0;
   border-style: solid;
   border-width: 6px 6px 6px 0;
-  border-color: transparent #07239A transparent transparent;
+  border-color: transparent #4D7493 transparent transparent;
   z-index: 1001;
 }
 

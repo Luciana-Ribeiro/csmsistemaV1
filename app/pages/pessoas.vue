@@ -1,16 +1,16 @@
 <template>
-  <div class="dashboard-page">
+  <div class="pessoas-page">
     <MainContainer offsetHeader>
       <template #header>
         <div class="flex items-center justify-between">
           <div>
-            <h1 class="text-xl font-bold text-gray-900">Dashboard</h1>
-            <p class="text-sm text-gray-600">Painel principal do sistema</p>
+            <h1 class="text-lg sm:text-xl font-bold text-gray-900">Pessoas</h1>
+            <p class="text-xs sm:text-sm text-gray-600">Gerenciamento de pessoas e colaboradores</p>
           </div>
         </div>
       </template>
 
-      <div class="max-w-6xl mx-auto p-4 sm:p-6">
+      <div class="p-4 sm:p-6">
         <!-- Conteúdo da página será adicionado aqui -->
       </div>
     </MainContainer>
@@ -20,13 +20,13 @@
 <script setup lang="ts">
 // Meta dados da página
 useSeoMeta({
-  title: 'Dashboard | CSM Sistema',
-  description: 'Painel principal do CSM Sistema'
+  title: 'Pessoas | CSM Sistema',
+  description: 'Gerenciamento de pessoas e colaboradores'
 })
 </script>
 
 <style scoped>
-.dashboard-page {
+.pessoas-page {
   @apply bg-gray-50;
 }
 </style>

@@ -126,7 +126,7 @@ const sizeClasses = {
 // Classes computadas do botão
 const buttonClasses = computed(() => [
   ...baseClasses,
-  ...variantClasses[props.variant],
+  ...(variantClasses[props.variant] || variantClasses['primary']),
   ...sizeClasses[props.size],
   {
     'w-full': props.fullWidth,

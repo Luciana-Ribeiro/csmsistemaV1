@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white border-b shadow-sm" style="border-color: #F5F5F5; height: 73px; box-sizing: border-box;">
+  <header class="border-b shadow-sm" style="background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%); border-color: rgba(148, 163, 184, 0.3); height: 73px; box-sizing: border-box; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
     <div class="px-4 py-6 flex items-center h-full" style="justify-content: space-between; width: 100%; box-sizing: border-box;">
       <!-- Título da página (extrema esquerda) -->
       <div class="flex items-center" style="flex: 0 0 auto;">
@@ -108,10 +108,22 @@ const handleLogout = () => {
     flex: 1;
     min-width: 0;
   }
+  
+  /* Ajustar padding no mobile */
+  header > div {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  /* Garantir que o título não quebre o layout */
+  h1 {
+    font-size: 0.875rem !important; /* text-sm */
+    max-width: calc(100vw - 100px);
+  }
 }
 
 /* Responsividade para tablet */
-@media (max-width: 768px) {
+@media (min-width: 641px) and (max-width: 1023px) {
   p {
     display: none !important;
   }

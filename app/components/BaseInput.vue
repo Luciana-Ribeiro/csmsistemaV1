@@ -130,8 +130,15 @@ const inputType = computed(() => {
 })
 
 // Classes do label
+const labelSizeClasses = {
+  sm: 'text-xs mb-1.5',
+  md: 'text-sm mb-2',
+  lg: 'text-base mb-2.5'
+}
+
 const labelClasses = computed(() => [
-  'block text-sm font-medium mb-2',
+  'block font-medium',
+  labelSizeClasses[props.size],
   {
     'text-gray-900': !props.errorMessage,
     'text-error-500': props.errorMessage,
@@ -160,8 +167,8 @@ const variantClasses = {
     }
   ],
   filled: [
-    'border-0 bg-gray-100',
-    'hover:bg-gray-200 focus:bg-white focus:ring-primary-300',
+    'border-0 bg-white',
+    'hover:bg-white focus:bg-white focus:ring-primary-300',
     {
       'focus:ring-error-300': props.errorMessage,
       'disabled:bg-gray-50': props.disabled

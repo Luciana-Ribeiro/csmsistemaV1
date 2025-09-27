@@ -80,8 +80,8 @@ const activeRoute = ref('dashboard')
 const isMobile = ref(false)
 
 // Estados do header global
-const currentPageTitle = ref('Dashboard')
-const currentPageSubtitle = ref('Painel principal do CSM Sistema')
+const currentPageTitle = ref('CSM - Sistema')
+const currentPageSubtitle = ref('Sistema de Gerenciamento de Notas de Serviços')
 
 // Métodos
 const handleSidebarCollapsed = (collapsed: boolean) => {
@@ -100,28 +100,10 @@ const handleNavigation = (itemId: string, route?: string) => {
   activeRoute.value = itemId
   console.log(`Layout: Navegando para ${itemId}`, route)
   
-  // Atualizar título da página baseado na navegação
-  updatePageTitle(itemId)
-  
   // Fechar sidebar mobile após navegação
   if (isMobile.value) {
     closeMobileSidebar()
   }
-}
-
-const updatePageTitle = (routeId: string) => {
-  const titleMap: Record<string, { title: string; subtitle: string }> = {
-    'dashboard': { title: 'Dashboard', subtitle: 'Painel principal do CSM Sistema' },
-    'notas-servicos': { title: 'Notas de Serviços', subtitle: 'Gerenciamento de notas de serviço' },
-    'pessoas': { title: 'Pessoas', subtitle: 'Gerenciamento de pessoas' },
-    'equipes': { title: 'Equipes', subtitle: 'Gerenciamento de equipes' },
-    'veiculos': { title: 'Veículos', subtitle: 'Gerenciamento de veículos' },
-    'relatorios': { title: 'Relatórios', subtitle: 'Relatórios do sistema' }
-  }
-  
-  const pageInfo = titleMap[routeId] || { title: 'CSM Sistema', subtitle: '' }
-  currentPageTitle.value = pageInfo.title
-  currentPageSubtitle.value = pageInfo.subtitle
 }
 
 const handleLogout = () => {
@@ -133,8 +115,6 @@ const handleLogout = () => {
 const handleSidebarNavigate = async (itemId: string, route?: string) => {
   activeRoute.value = itemId
   console.log(`Layout: Navegando para ${itemId}`, route)
-
-  updatePageTitle(itemId)
 
   if (isMobile.value) {
     closeMobileSidebar()
@@ -175,8 +155,7 @@ provide('layoutData', {
   activeRoute: readonly(activeRoute),
   isMobile: readonly(isMobile),
   currentPageTitle: readonly(currentPageTitle),
-  currentPageSubtitle: readonly(currentPageSubtitle),
-  updatePageTitle
+  currentPageSubtitle: readonly(currentPageSubtitle)
 })
 </script>
 
@@ -306,18 +285,9 @@ provide('layoutData', {
   @apply flex-1;
 }
 
-/* Overrides para garantir scroll local apenas no MainContainer */
-.layout-wrapper {
-  overflow: hidden; /* bloqueia rolagem do body */
-}
-
-.main-content {
-  min-height: 0;
-}
-
-.content-wrapper {
-  min-height: 0 !important;
-  padding-top: 0 !important;
-}
+/* Ativa padrão: rolagem apenas em containers locais quando necessário */
+.layout-wrapper { overflow: hidden; }
+.main-content { min-height: 0; }
+.content-wrapper { min-height: 0; padding-top: 0; }
 </style>
 
